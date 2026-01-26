@@ -23,10 +23,31 @@ const Contact = () => {
     setIsSubmitting(true)
     setSubmitStatus({ type: '', message: '' })
 
-    // Configuration EmailJS - À remplacer par vos propres clés
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID'
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID'
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
+    // Configuration EmailJS
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+    // Vérifier si EmailJS est configuré
+    if (!serviceId || !templateId || !publicKey || 
+        serviceId === 'YOUR_SERVICE_ID' || 
+        templateId === 'YOUR_TEMPLATE_ID' || 
+        publicKey === 'YOUR_PUBLIC_KEY') {
+      // Solution de secours : ouvrir le client email
+      const subject = encodeURIComponent(`Message de ${formData.name}`)
+      const body = encodeURIComponent(
+        `Nom: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      )
+      window.location.href = `mailto:yousfiziadpro@gmail.com?subject=${subject}&body=${body}`
+      
+      setSubmitStatus({
+        type: 'success',
+        message: 'Votre client email s\'ouvre. Si ce n\'est pas le cas, envoyez un email à yousfiziadpro@gmail.com'
+      })
+      setFormData({ name: '', email: '', message: '' })
+      setIsSubmitting(false)
+      return
+    }
 
     try {
       await emailjs.send(
@@ -48,9 +69,17 @@ const Contact = () => {
       setFormData({ name: '', email: '', message: '' })
     } catch (error) {
       console.error('Erreur lors de l\'envoi:', error)
+      
+      // Solution de secours en cas d'erreur
+      const subject = encodeURIComponent(`Message de ${formData.name}`)
+      const body = encodeURIComponent(
+        `Nom: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      )
+      
       setSubmitStatus({
         type: 'error',
-        message: 'Une erreur est survenue. Veuillez réessayer ou m\'envoyer un email directement à yousfiziadpro@gmail.com'
+        message: `Une erreur est survenue. Cliquez ici pour envoyer un email directement : `,
+        mailtoLink: `mailto:yousfiziadpro@gmail.com?subject=${subject}&body=${body}`
       })
     } finally {
       setIsSubmitting(false)
@@ -183,6 +212,14 @@ const Contact = () => {
                   }`}
                 >
                   {submitStatus.message}
+                  {submitStatus.mailtoLink && (
+                    <a
+                      href={submitStatus.mailtoLink}
+                      className="block mt-2 text-white underline hover:text-white/80"
+                    >
+                      Envoyer un email maintenant
+                    </a>
+                  )}
                 </div>
               )}
 

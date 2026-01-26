@@ -135,14 +135,28 @@ Le formulaire de contact utilise EmailJS pour envoyer les emails. Pour l'activer
    - Allez dans "Account" > "General"
    - Copiez votre `Public Key`
 
-5. **Créer un fichier `.env`** à la racine du projet :
+5. **Configurer les variables d'environnement** :
+
+   **Pour le développement local** : Créer un fichier `.env` à la racine du projet :
    ```
    VITE_EMAILJS_SERVICE_ID=votre_service_id
    VITE_EMAILJS_TEMPLATE_ID=votre_template_id
    VITE_EMAILJS_PUBLIC_KEY=votre_public_key
    ```
 
-6. **Redémarrer le serveur de développement** après avoir créé le fichier `.env`
+   **Pour Vercel (déploiement)** :
+   - Allez sur [Vercel Dashboard](https://vercel.com/dashboard)
+   - Sélectionnez votre projet
+   - Allez dans **Settings** > **Environment Variables**
+   - Ajoutez les trois variables suivantes :
+     - `VITE_EMAILJS_SERVICE_ID` = votre_service_id
+     - `VITE_EMAILJS_TEMPLATE_ID` = votre_template_id
+     - `VITE_EMAILJS_PUBLIC_KEY` = votre_public_key
+   - **Important** : Sélectionnez tous les environnements (Production, Preview, Development)
+   - Cliquez sur **Save**
+   - **Redéployez votre projet** pour que les variables soient prises en compte
+
+6. **Redémarrer le serveur de développement** après avoir créé le fichier `.env` (pour le développement local)
 
 ## 📝 Notes
 
