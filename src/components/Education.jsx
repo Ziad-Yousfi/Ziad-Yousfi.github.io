@@ -16,6 +16,16 @@ const Education = () => {
       title: 'Python pour tous',
       issuer: 'Alison Patou',
       icon: <FaCertificate className="text-white text-2xl" />
+    },
+    {
+      title: 'Software Engineering: Software Design and Project Management',
+      issuer: 'HKUST (Coursera)',
+      icon: <FaCertificate className="text-white text-2xl" />
+    },
+    {
+      title: 'Using Python to Access Web Data',
+      issuer: 'University of Michigan (Coursera)',
+      icon: <FaCertificate className="text-white text-2xl" />
     }
   ]
 
@@ -42,12 +52,14 @@ const Education = () => {
                 <div className="space-y-2">
                   <p className="text-white/70 font-semibold">Modules clés :</p>
                   <ul className="list-disc list-inside text-white/90 space-y-1 ml-4">
-                    <li>POO (C++)</li>
+                    <li>POO (C++ / Java)</li>
                     <li>Algorithmique</li>
                     <li>Réseaux TCP/IP</li>
-                    <li>SQL/PL-SQL</li>
-                    <li>Deep Learning</li>
-                    <li>Big Data</li>
+                    <li>SQL / PL-SQL / T-SQL</li>
+                    <li>SSMS</li>
+                    <li>Linux / Unix</li>
+                    <li>Python / Streamlit</li>
+                    <li>Frameworks Web</li>
                   </ul>
                 </div>
               </div>
