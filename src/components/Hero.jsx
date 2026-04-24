@@ -10,9 +10,11 @@ const Hero = () => {
             ZIAD YOUSFI
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Étudiant Ingénieur en Informatique et Réseaux. Passionné par la conception 
-            d'architectures logicielles et le développement Full-Stack, j'utilise les méthodologies 
-            UML et Merise pour structurer des solutions performantes, évolutives et sécurisées.
+            Étudiant en 3ème année Ingénierie Informatique et Réseaux (IIR) à l'EMSI. 
+            Passionné par la <span className="text-blue-400">Cybersécurité</span> et l'<span className="text-blue-400">Intelligence Artificielle</span>, 
+            je cultive une forte curiosité technologique au quotidien. 
+            Également <span className="text-blue-400">tuteur pour les étudiants de première année</span>, 
+            j'aime transmettre mes connaissances et accompagner les futurs ingénieurs dans leur parcours.
           </p>
         </div>
       </div>

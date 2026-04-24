@@ -8,6 +8,8 @@ import Education from './components/Education'
 import Experience from './components/Experience'
 import Contact from './components/Contact'
 
+import Background3D from './components/Background3D'
+
 function App() {
   const [activeSection, setActiveSection] = useState('home')
 
@@ -33,7 +35,8 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-dark-bg">
+    <div className="relative min-h-screen text-white">
+      <Background3D />
       <Navbar activeSection={activeSection} />
       <main className="md:pr-24">
         <Hero />

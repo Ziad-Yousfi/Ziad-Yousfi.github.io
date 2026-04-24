@@ -2,19 +2,27 @@ const Skills = () => {
   const skillCategories = [
     {
       title: 'Langages',
-      skills: ['C++', 'Python', 'SQL', 'PL/SQL', 'TypeScript', 'PHP', 'JavaScript', 'VB.NET']
+      skills: ['C++', 'Java', 'Java Swing', 'Python', 'SQL', 'PL/SQL', 'T-SQL', 'TypeScript', 'PHP', 'JavaScript']
     },
     {
       title: 'Web & Frameworks',
-      skills: ['Laravel', 'Node.js', 'React', 'Tailwind CSS', 'Streamlit', 'jQuery', 'JSON']
+      skills: ['Laravel', 'Node.js', 'React', 'Tailwind CSS', 'Streamlit', 'jQuery']
     },
     {
-      title: 'Outils',
-      skills: ['Git', 'Linux (Bash)', 'VirtualBox', 'Firebase']
+      title: 'Cyber & Spécialités',
+      skills: ['Kali Linux', 'Analyse de malwares', 'Jailbreak/Modding', 'Intelligence Artificielle']
+    },
+    {
+      title: 'Réseaux & Administration',
+      skills: ['Cisco (Routing & Switching)', 'TCP/IP', 'DNS/DHCP', 'Administration Linux', 'VPN/Pare-feu']
+    },
+    {
+      title: 'Outils & Hardware',
+      skills: ['Git', 'Docker', 'VirtualBox', 'Zenbook 14 OLED', 'Firebase']
     },
     {
       title: 'Conception & Modélisation',
-      skills: ['UML', 'Merise (MCD/MLD)', 'Architecture MVC', 'Microservices']
+      skills: ['UML', 'Merise (MCD/MLD)', 'Architecture MVC', 'Agile/Scrum']
     }
   ]
 
@@ -25,7 +33,7 @@ const Skills = () => {
           Compétences Techniques
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
             <div
               key={index}

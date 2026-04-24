@@ -11,15 +11,16 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg text-white/90 leading-relaxed">
-              Passionné par la conception d'architectures logicielles et le développement Full-Stack, 
-              j'utilise les méthodologies UML et Merise pour structurer des solutions performantes, 
-              évolutives et sécurisées.
+              Actuellement en formation d'Ingénierie Informatique et Réseaux, je me concentre sur les enjeux 
+              majeurs de la <span className="text-blue-400">Cybersécurité</span> et de l'<span className="text-blue-400">Intelligence Artificielle</span>. 
+              Ma démarche est guidée par une curiosité technologique constante, me poussant à explorer 
+              de nouvelles solutions pour répondre aux défis numériques actuels.
             </p>
             <p className="text-lg text-white/90 leading-relaxed">
-              Je possède une solide maîtrise du développement logiciel avec des langages comme C, C++, 
-              Python, PHP et JavaScript, ainsi qu'une expertise approfondie dans les infrastructures réseaux. 
-              Mon approche combine rigueur technique et créativité pour résoudre des problèmes complexes 
-              et créer des solutions innovantes.
+              En tant que <span className="text-blue-400">tuteur pour les étudiants de première année</span>, 
+              je m'engage à faciliter leur intégration et à renforcer leurs bases techniques. 
+              Cette expérience m'a permis de développer d'excellentes capacités de communication et 
+              une pédagogie adaptée pour vulgariser des concepts complexes.
             </p>
           </div>
 

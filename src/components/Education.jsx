@@ -52,14 +52,14 @@ const Education = () => {
                 <div className="space-y-2">
                   <p className="text-white/70 font-semibold">Modules clés :</p>
                   <ul className="list-disc list-inside text-white/90 space-y-1 ml-4">
-                    <li>POO (C++ / Java)</li>
-                    <li>Algorithmique</li>
-                    <li>Réseaux TCP/IP</li>
-                    <li>SQL / PL-SQL / T-SQL</li>
-                    <li>SSMS</li>
-                    <li>Linux / Unix</li>
-                    <li>Python / Streamlit</li>
-                    <li>Frameworks Web</li>
+                    <li>POO (C++ / Java / Java Swing)</li>
+                    <li>Cybersécurité & Réseaux TCP/IP</li>
+                    <li>Intelligence Artificielle</li>
+                    <li>Algorithmique & Structures de données</li>
+                    <li>SQL / PL-SQL / NoSQL</li>
+                    <li>SSMS & Administration BD</li>
+                    <li>Linux (Administration & Shell)</li>
+                    <li>Développement Full-Stack (Laravel, React)</li>
                   </ul>
                 </div>
               </div>
@@ -75,6 +75,7 @@ const Education = () => {
                   key={index}
                   className="flex items-start space-x-4 p-4 bg-dark-bg/50 rounded-lg border border-white/10 hover:border-white/30 transition-all duration-300"
                 >
+
                   <div className="flex-shrink-0 mt-1">
                     {cert.icon}
                   </div>
