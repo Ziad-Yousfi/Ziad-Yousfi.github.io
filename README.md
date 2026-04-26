@@ -1,5 +1,7 @@
 # Portfolio Ziad Yousfi
 
+[English](README_EN.md) | [Français](README.md)
+
 Portfolio web moderne, responsive et entièrement fonctionnel pour Ziad Yousfi, étudiant en Ingénierie en Informatique et Réseaux.
 
 ## 🚀 Technologies Utilisées
@@ -177,4 +179,3 @@ Ce projet est un portfolio personnel.
 ---
 
 Développé avec ❤️ en utilisant React et Tailwind CSS
-
