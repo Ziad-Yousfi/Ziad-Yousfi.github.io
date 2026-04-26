@@ -7,6 +7,7 @@ import Projects from './components/Projects'
 import Education from './components/Education'
 import Experience from './components/Experience'
 import Contact from './components/Contact'
+import { LanguageProvider } from './context/LanguageContext'
 
 import Background3D from './components/Background3D'
 
@@ -35,24 +36,33 @@ function App() {
   }, [])
 
   return (
-    <div className="relative min-h-screen text-white">
-      <Background3D />
-      <Navbar activeSection={activeSection} />
-      <main className="md:pr-24">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Education />
-        <Experience />
-        <Contact />
-      </main>
-      <footer className="border-t border-white/10 py-8 text-center text-white/60">
-        <p>&copy; 2024 Ziad Yousfi. Tous droits réservés.</p>
-      </footer>
-    </div>
+    <LanguageProvider>
+      <div className="relative min-h-screen text-white">
+        <Background3D />
+        <Navbar activeSection={activeSection} />
+        <main className="md:pr-24">
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Education />
+          <Experience />
+          <Contact />
+        </main>
+        <footer className="border-t border-white/10 py-8 text-center text-white/60">
+          <p>&copy; 2024 Ziad Yousfi. <TranslatedFooter /></p>
+        </footer>
+      </div>
+    </LanguageProvider>
   )
 }
+
+const TranslatedFooter = () => {
+  const { t } = useLanguage();
+  return <span>{t('footer.rights')}</span>
+}
+
+import { useLanguage } from './context/LanguageContext'
 
 export default App
 

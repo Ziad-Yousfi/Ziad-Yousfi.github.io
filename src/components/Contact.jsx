@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { FaLinkedin, FaGithub, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import emailjs from '@emailjs/browser'
+import { useLanguage } from '../context/LanguageContext'
 
 const Contact = () => {
+  const { t } = useLanguage()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,17 +25,14 @@ const Contact = () => {
     setIsSubmitting(true)
     setSubmitStatus({ type: '', message: '' })
 
-    // Configuration EmailJS
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-    // Vérifier si EmailJS est configuré
     if (!serviceId || !templateId || !publicKey || 
         serviceId === 'YOUR_SERVICE_ID' || 
         templateId === 'YOUR_TEMPLATE_ID' || 
         publicKey === 'YOUR_PUBLIC_KEY') {
-      // Solution de secours : ouvrir le client email
       const subject = encodeURIComponent(`Message de ${formData.name}`)
       const body = encodeURIComponent(
         `Nom: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
@@ -42,7 +41,7 @@ const Contact = () => {
       
       setSubmitStatus({
         type: 'success',
-        message: 'Votre client email s\'ouvre. Si ce n\'est pas le cas, envoyez un email à yousfiziadpro@gmail.com'
+        message: t('contact.fallback')
       })
       setFormData({ name: '', email: '', message: '' })
       setIsSubmitting(false)
@@ -64,13 +63,11 @@ const Contact = () => {
 
       setSubmitStatus({
         type: 'success',
-        message: 'Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.'
+        message: t('contact.success')
       })
       setFormData({ name: '', email: '', message: '' })
     } catch (error) {
       console.error('Erreur lors de l\'envoi:', error)
-      
-      // Solution de secours en cas d'erreur
       const subject = encodeURIComponent(`Message de ${formData.name}`)
       const body = encodeURIComponent(
         `Nom: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
@@ -78,7 +75,7 @@ const Contact = () => {
       
       setSubmitStatus({
         type: 'error',
-        message: `Une erreur est survenue. Cliquez ici pour envoyer un email directement : `,
+        message: t('contact.error'),
         mailtoLink: `mailto:yousfiziadpro@gmail.com?subject=${subject}&body=${body}`
       })
     } finally {
@@ -90,19 +87,17 @@ const Contact = () => {
     <section id="contact" className="section-padding min-h-screen flex items-center">
       <div className="container-custom">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-white">
-          Contact
+          {t('contact.title')}
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Informations de contact */}
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-white">
-                Restons en contact
+                {t('contact.stayInTouch')}
               </h3>
               <p className="text-white/90 leading-relaxed mb-8">
-                Vous avez un projet en tête ou une question ? N'hésitez pas à me contacter. 
-                Je serai ravi de discuter avec vous !
+                {t('contact.description')}
               </p>
             </div>
 
@@ -110,8 +105,8 @@ const Contact = () => {
               <div className="flex items-center space-x-4 p-4 bg-dark-gray/50 rounded-lg border border-white/10 hover:border-white/30 transition-all duration-300">
                 <FaMapMarkerAlt className="text-white text-2xl" />
                 <div>
-                  <p className="text-white/70 text-sm">Localisation</p>
-                  <p className="text-white">Témara, Maroc</p>
+                  <p className="text-white/70 text-sm">{t('contact.location')}</p>
+                  <p className="text-white">{t('about.location')}</p>
                 </div>
               </div>
 
@@ -121,7 +116,7 @@ const Contact = () => {
               >
                 <FaEnvelope className="text-white text-2xl" />
                 <div>
-                  <p className="text-white/70 text-sm">Email</p>
+                  <p className="text-white/70 text-sm">{t('contact.email')}</p>
                   <p className="text-white">yousfiziadpro@gmail.com</p>
                 </div>
               </a>
@@ -149,15 +144,14 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Formulaire de contact */}
           <div className="bg-dark-gray/50 p-8 rounded-lg border border-white/10">
             <h3 className="text-2xl font-semibold mb-6 text-white">
-              Envoyez un message
+              {t('contact.sendMessage')}
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-white/90 mb-2">
-                  Nom
+                  {t('contact.name')}
                 </label>
                 <input
                   type="text"
@@ -167,13 +161,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-dark-bg border border-white/20 rounded-lg text-white focus:outline-none focus:border-white/50 transition-colors"
-                  placeholder="Votre nom"
+                  placeholder={t('contact.placeholderName')}
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-white/90 mb-2">
-                  Email
+                  {t('contact.email')}
                 </label>
                 <input
                   type="email"
@@ -183,13 +177,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-dark-bg border border-white/20 rounded-lg text-white focus:outline-none focus:border-white/50 transition-colors"
-                  placeholder="votre.email@example.com"
+                  placeholder={t('contact.placeholderEmail')}
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-white/90 mb-2">
-                  Message
+                  {t('contact.message')}
                 </label>
                 <textarea
                   id="message"
@@ -199,7 +193,7 @@ const Contact = () => {
                   required
                   rows="6"
                   className="w-full px-4 py-3 bg-dark-bg border border-white/20 rounded-lg text-white focus:outline-none focus:border-white/50 transition-colors resize-none"
-                  placeholder="Votre message..."
+                  placeholder={t('contact.placeholderMessage')}
                 />
               </div>
 
@@ -217,7 +211,7 @@ const Contact = () => {
                       href={submitStatus.mailtoLink}
                       className="block mt-2 text-white underline hover:text-white/80"
                     >
-                      Envoyer un email maintenant
+                      {t('contact.sendEmailNow')}
                     </a>
                   )}
                 </div>
@@ -228,7 +222,7 @@ const Contact = () => {
                 disabled={isSubmitting}
                 className="w-full px-8 py-3 bg-white text-dark-bg font-semibold rounded-lg hover:bg-white/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
+                {isSubmitting ? t('contact.sending') : t('contact.sendButton')}
               </button>
             </form>
           </div>
@@ -239,4 +233,3 @@ const Contact = () => {
 }
 
 export default Contact
-

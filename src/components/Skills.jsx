@@ -1,27 +1,31 @@
+import { useLanguage } from '../context/LanguageContext'
+
 const Skills = () => {
+  const { t } = useLanguage()
+
   const skillCategories = [
     {
-      title: 'Langages',
+      title: t('skills.categories.languages'),
       skills: ['C++', 'Java', 'Java Swing', 'Python', 'SQL', 'PL/SQL', 'T-SQL', 'TypeScript', 'PHP', 'JavaScript']
     },
     {
-      title: 'Web & Frameworks',
+      title: t('skills.categories.web'),
       skills: ['Laravel', 'Node.js', 'React', 'Tailwind CSS', 'Streamlit', 'jQuery']
     },
     {
-      title: 'Cyber & Spécialités',
-      skills: ['Kali Linux', 'Analyse de malwares', 'Jailbreak/Modding', 'Intelligence Artificielle']
+      title: t('skills.categories.cyber'),
+      skills: ['Kali Linux', t('skills.items.malware'), 'Jailbreak/Modding', t('skills.items.ai')]
     },
     {
-      title: 'Réseaux & Administration',
-      skills: ['Cisco (Routing & Switching)', 'TCP/IP', 'DNS/DHCP', 'Administration Linux', 'VPN/Pare-feu']
+      title: t('skills.categories.network'),
+      skills: ['Cisco (Routing & Switching)', 'TCP/IP', 'DNS/DHCP', t('skills.items.linux_admin'), t('skills.items.firewall')]
     },
     {
-      title: 'Outils & Hardware',
+      title: t('skills.categories.tools'),
       skills: ['Git', 'Docker', 'VirtualBox', 'Zenbook 14 OLED', 'Firebase']
     },
     {
-      title: 'Conception & Modélisation',
+      title: t('skills.categories.design'),
       skills: ['UML', 'Merise (MCD/MLD)', 'Architecture MVC', 'Agile/Scrum']
     }
   ]
@@ -30,7 +34,7 @@ const Skills = () => {
     <section id="skills" className="section-padding min-h-screen flex items-center">
       <div className="container-custom">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-white">
-          Compétences Techniques
+          {t('skills.title')}
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -61,4 +65,3 @@ const Skills = () => {
 }
 
 export default Skills
-

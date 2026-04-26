@@ -1,10 +1,13 @@
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import { useLanguage } from '../context/LanguageContext'
 
 const Projects = () => {
+  const { t } = useLanguage()
+
   const projects = [
     {
       title: 'SmartTender',
-      description: 'Solution d\'automatisation de consolidation des prix pour réduire les erreurs humaines dans le BTP.',
+      description: t('projects.items.smarttender'),
       technologies: ['Python', 'Streamlit'],
       links: {
         github: null,
@@ -13,7 +16,7 @@ const Projects = () => {
     },
     {
       title: 'Atlas Guard',
-      description: 'Plateforme de surveillance de la faune en temps réel avec gestion de drones et coordination des rangers.',
+      description: t('projects.items.atlasguard'),
       technologies: ['React', 'Vite', 'CSS'],
       links: {
         github: null,
@@ -22,7 +25,7 @@ const Projects = () => {
     },
     {
       title: 'UniRide',
-      description: 'Conception Full-Stack d\'une plateforme complète de partage de trajets.',
+      description: t('projects.items.uniride'),
       technologies: ['Laravel', 'Git'],
       links: {
         github: null,
@@ -31,7 +34,7 @@ const Projects = () => {
     },
     {
       title: 'Échange de Campus',
-      description: 'Application web pour publier et trouver des annonces d\'échange de campus. Les utilisateurs peuvent publier leur campus actuel, le campus souhaité et un contact.',
+      description: t('projects.items.exchange'),
       technologies: ['HTML', 'CSS', 'JavaScript'],
       links: {
         github: null,
@@ -40,7 +43,7 @@ const Projects = () => {
     },
     {
       title: 'Twitter-Clone-Fullstack',
-      description: 'Collaboration sur le développement d\'un clone de réseau social avec fonctionnalités complètes.',
+      description: t('projects.items.twitter'),
       technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
       links: {
         github: null,
@@ -49,7 +52,7 @@ const Projects = () => {
     },
     {
       title: 'Chatbot Intelligent',
-      description: 'Développement d\'un chatbot interactif avec traitement du langage naturel et intégration d\'API pour répondre aux questions des utilisateurs.',
+      description: t('projects.items.chatbot'),
       technologies: ['JavaScript', 'Node.js', 'API', 'NLP'],
       links: {
         github: null,
@@ -62,7 +65,7 @@ const Projects = () => {
     <section id="projects" className="section-padding min-h-screen flex items-center">
       <div className="container-custom">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-white">
-          Projets Phares
+          {t('projects.title')}
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -100,7 +103,7 @@ const Projects = () => {
                     className="flex items-center space-x-2 text-white/70 hover:text-white transition-colors"
                   >
                     <FaGithub />
-                    <span>Code</span>
+                    <span>{t('projects.code')}</span>
                   </a>
                 )}
                 {project.links.demo && (
@@ -111,7 +114,7 @@ const Projects = () => {
                     className="flex items-center space-x-2 text-white/70 hover:text-white transition-colors"
                   >
                     <FaExternalLinkAlt />
-                    <span>Demo</span>
+                    <span>{t('projects.demo')}</span>
                   </a>
                 )}
               </div>
@@ -124,4 +127,3 @@ const Projects = () => {
 }
 
 export default Projects
-

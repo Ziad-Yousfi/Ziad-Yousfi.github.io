@@ -1,6 +1,9 @@
 import { FaGraduationCap, FaCertificate } from 'react-icons/fa'
+import { useLanguage } from '../context/LanguageContext'
 
 const Education = () => {
+  const { t } = useLanguage()
+
   const certifications = [
     {
       title: 'Introduction à la programmation orientée objet (C++)',
@@ -33,7 +36,7 @@ const Education = () => {
     <section id="education" className="section-padding min-h-screen flex items-center">
       <div className="container-custom">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-white">
-          Formation & Certifications
+          {t('education.title')}
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12">
@@ -41,25 +44,20 @@ const Education = () => {
           <div className="bg-dark-gray/50 p-8 rounded-lg border border-white/10">
             <div className="flex items-center mb-6">
               <FaGraduationCap className="text-white text-3xl mr-4" />
-              <h3 className="text-2xl font-semibold text-white">Formation</h3>
+              <h3 className="text-2xl font-semibold text-white">{t('education.formation')}</h3>
             </div>
             <div className="space-y-4">
               <div>
                 <h4 className="text-xl font-semibold text-white mb-2">
-                  Cursus Ingénieur en Informatique et Réseaux
+                  {t('education.degree')}
                 </h4>
-                <p className="text-white/90 mb-4">EMSI / École d'Ingénierie</p>
+                <p className="text-white/90 mb-4">{t('education.school')}</p>
                 <div className="space-y-2">
-                  <p className="text-white/70 font-semibold">Modules clés :</p>
+                  <p className="text-white/70 font-semibold">{t('education.keyModules')}</p>
                   <ul className="list-disc list-inside text-white/90 space-y-1 ml-4">
-                    <li>POO (C++ / Java / Java Swing)</li>
-                    <li>Cybersécurité & Réseaux TCP/IP</li>
-                    <li>Intelligence Artificielle</li>
-                    <li>Algorithmique & Structures de données</li>
-                    <li>SQL / PL-SQL / NoSQL</li>
-                    <li>SSMS & Administration BD</li>
-                    <li>Linux (Administration & Shell)</li>
-                    <li>Développement Full-Stack (Laravel, React)</li>
+                    {t('education.modules').map((module, index) => (
+                      <li key={index}>{module}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -68,7 +66,7 @@ const Education = () => {
 
           {/* Certifications */}
           <div className="bg-dark-gray/50 p-8 rounded-lg border border-white/10">
-            <h3 className="text-2xl font-semibold mb-6 text-white">Certifications</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-white">{t('education.certifications')}</h3>
             <div className="space-y-6">
               {certifications.map((cert, index) => (
                 <div
@@ -96,4 +94,3 @@ const Education = () => {
 }
 
 export default Education
-
