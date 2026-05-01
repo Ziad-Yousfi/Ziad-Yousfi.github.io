@@ -10,7 +10,7 @@ const Projects = () => {
       description: t('projects.items.smarttender'),
       technologies: ['Python', 'Streamlit'],
       links: {
-        github: null,
+        github: 'https://github.com/Ziad-Yousfi/SmartTender',
         demo: null
       }
     },
@@ -19,7 +19,7 @@ const Projects = () => {
       description: t('projects.items.atlasguard'),
       technologies: ['React', 'Vite', 'CSS'],
       links: {
-        github: null,
+        github: 'https://github.com/Ziad-Yousfi/Atlas-Guard',
         demo: null
       }
     },
@@ -28,34 +28,34 @@ const Projects = () => {
       description: t('projects.items.uniride'),
       technologies: ['Laravel', 'Git'],
       links: {
-        github: null,
+        github: 'https://github.com/Ziad-Yousfi/UniRide',
         demo: null
       }
     },
     {
-      title: 'Échange de Campus',
+      title: 'Campus Exchange Hub',
       description: t('projects.items.exchange'),
       technologies: ['HTML', 'CSS', 'JavaScript'],
       links: {
-        github: null,
+        github: 'https://github.com/Ziad-Yousfi/Campus-Exchange-Hub',
         demo: null
       }
     },
     {
-      title: 'Twitter-Clone-Fullstack',
-      description: t('projects.items.twitter'),
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
+      title: 'FlowPKG',
+      description: t('projects.items.flowpkg'),
+      technologies: ['Python', 'PyQt5', 'PS4'],
       links: {
-        github: null,
+        github: 'https://github.com/Ziad-Yousfi/FlowPKG',
         demo: null
       }
     },
     {
-      title: 'Chatbot Intelligent',
+      title: 'ChatBot',
       description: t('projects.items.chatbot'),
       technologies: ['JavaScript', 'Node.js', 'API', 'NLP'],
       links: {
-        github: null,
+        github: 'https://github.com/Ziad-Yousfi/ChatBot',
         demo: null
       }
     }
@@ -70,18 +70,30 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div
+            <a
               key={index}
-              className="bg-dark-gray/50 p-6 rounded-lg border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col"
+              href={project.links.github || '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-dark-gray/50 p-6 rounded-lg border border-white/10 
+                hover:border-white/30 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] 
+                transition-all duration-300 ease-out flex flex-col cursor-pointer no-underline"
             >
-              <h3 className="text-2xl font-semibold mb-4 text-white">
-                {project.title}
-              </h3>
+              {/* En-tête avec titre + icône GitHub */}
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-2xl font-semibold text-white">
+                  {project.title}
+                </h3>
+                <FaGithub 
+                  size={22} 
+                  className="text-white/40 group-hover:text-white group-hover:scale-110 transition-all duration-300" 
+                />
+              </div>
               <p className="text-white/90 mb-6 flex-grow leading-relaxed">
                 {project.description}
               </p>
               
-              <div className="mb-6">
+              <div className="mt-auto">
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, techIndex) => (
                     <span
@@ -93,32 +105,7 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
-
-              <div className="flex space-x-4 mt-auto">
-                {project.links.github && (
-                  <a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-white/70 hover:text-white transition-colors"
-                  >
-                    <FaGithub />
-                    <span>{t('projects.code')}</span>
-                  </a>
-                )}
-                {project.links.demo && (
-                  <a
-                    href={project.links.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-white/70 hover:text-white transition-colors"
-                  >
-                    <FaExternalLinkAlt />
-                    <span>{t('projects.demo')}</span>
-                  </a>
-                )}
-              </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

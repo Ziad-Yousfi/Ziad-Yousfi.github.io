@@ -49,7 +49,7 @@ const translations = {
         atlasguard: 'Plateforme de surveillance de la faune en temps réel avec gestion de drones et coordination des rangers.',
         uniride: 'Conception Full-Stack d\'une plateforme complète de partage de trajets.',
         exchange: 'Application web pour publier et trouver des annonces d\'échange de campus. Les utilisateurs peuvent publier leur campus actuel, le campus souhaité et un contact.',
-        twitter: 'Collaboration sur le développement d\'un clone de réseau social avec fonctionnalités complètes.',
+        flowpkg: 'Gestionnaire de fichiers PKG pour PS4 avec une interface graphique moderne inspirée du design PlayStation.',
         chatbot: 'Développement d\'un chatbot interactif avec traitement du langage naturel et intégration d\'API pour répondre aux questions des utilisateurs.',
       }
     },
@@ -154,7 +154,7 @@ const translations = {
         atlasguard: 'Real-time wildlife monitoring platform with drone management and ranger coordination.',
         uniride: 'Full-Stack design of a complete ride-sharing platform.',
         exchange: 'Web application to post and find campus exchange ads. Users can post their current campus, desired campus, and contact info.',
-        twitter: 'Collaboration on developing a social network clone with full features.',
+        flowpkg: 'PKG file manager for PS4 with a modern graphical interface inspired by PlayStation design.',
         chatbot: 'Development of an interactive chatbot with natural language processing and API integration to answer user questions.',
       }
     },
