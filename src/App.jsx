@@ -50,7 +50,7 @@ function App() {
           <Contact />
         </main>
         <footer className="border-t border-white/10 py-8 text-center text-white/60">
-          <p>&copy; 2024 Ziad Yousfi. <TranslatedFooter /></p>
+          <p>&copy; 2026 Ziad Yousfi. <TranslatedFooter /></p>
         </footer>
       </div>
     </LanguageProvider>
